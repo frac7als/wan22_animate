@@ -1,7 +1,6 @@
 import subprocess
 import os
 import json
-import requests
 import time
 import modal
 from pathlib import Path
