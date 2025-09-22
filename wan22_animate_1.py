@@ -22,6 +22,7 @@ image = (
         "fastapi[standard]==0.115.4",
         "comfy-cli==1.5.1",
         "requests",
+        "huggingface_hub[hf_transfer]>=0.34.0,<1.0",
     )
     .run_commands(
         "comfy --skip-prompt install --fast-deps --nvidia --version 0.3.59"
@@ -168,6 +169,7 @@ def run_wan22_workflow(
     height: int = 480,
 ):
     """Run the Wan 2.2 VACE workflow"""
+    import requests  # Import here to avoid module-level import issues
     
     # Save start image if provided
     if start_image_data:
